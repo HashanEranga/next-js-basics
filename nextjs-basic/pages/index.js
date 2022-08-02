@@ -75,6 +75,15 @@ export default function HomePage() {
             </li>
           );
         })}
+        <li>
+          <Link
+            href={{
+              pathname: "/about",
+            }}
+          >
+            About
+          </Link>
+        </li>
       </ul>
     </div>
   );
