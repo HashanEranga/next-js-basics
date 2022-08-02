@@ -16,6 +16,25 @@ export default function HomePage() {
     },
   ];
 
+  const projectList = [
+    {
+      id: "project1",
+      name: "ProjectA",
+    },
+    {
+      id: "project2",
+      name: "ProjectB",
+    },
+    {
+      id: "project3",
+      name: "ProjectC",
+    },
+    {
+      id: "project4",
+      name: "ProjectD",
+    },
+  ];
+
   return (
     <div>
       <h1>The HomePage</h1>
@@ -39,6 +58,20 @@ export default function HomePage() {
           return (
             <li key={blog.id}>
               <Link href={`/clients/${blog.id}`}>{blog.name}</Link>
+            </li>
+          );
+        })}
+        {projectList.map((project) => {
+          return (
+            <li key={project.id}>
+              <Link
+                href={{
+                  pathname: "/portfolio/[id]",
+                  query: { id: project.name },
+                }}
+              >
+                {project.name}
+              </Link>
             </li>
           );
         })}
