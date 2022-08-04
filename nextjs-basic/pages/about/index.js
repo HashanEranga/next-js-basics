@@ -5,6 +5,7 @@ function AboutPage() {
   const router = useRouter();
   function toHomePageHandler() {
     router.push("/");
+    // router.replace('/') having cannot go back
   }
   return (
     <div>
