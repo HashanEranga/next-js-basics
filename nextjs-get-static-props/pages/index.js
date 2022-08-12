@@ -18,13 +18,25 @@ export default function Home(props) {
 // not expose to the cliet side so the database keys and the other keys can be contained in the getStaticProps() method
 // will be redered first prerendered the each page
 export async function getStaticProps() {
+  console.log("Re-rendering ... ")
   var filePath = path.join(process.cwd(), 'data', 'DUMMY_DATA.json')
   var jsonData = await fs.readFile(filePath)
   const data = JSON.parse(jsonData)
+
+  if(data.products.length === 0){
+    return {notFound : true}
+  }
+
+  if (!data){
+    return {redirect: {
+      destination : '/no-data'
+    }}
+  }
 
   return {
     props: {
       products: data.products
     },
+    revalidate : 10
   };
 }
