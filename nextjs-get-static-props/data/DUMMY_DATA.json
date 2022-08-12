@@ -1,32 +1,32 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "p1",
       "prod_name": "Product 23",
       "description" : "This is product 1"
     },
     {
-        "id": 2,
+        "id": "p2",
         "prod_name": "Product 2",
         "description" : "This is product 1"
     },
     {
-        "id": 3,
+        "id": "p3",
         "prod_name": "Product 3",
         "description" : "This is product 1"
     },
     {
-        "id": 4,
+        "id": "p4",
         "prod_name": "Product 4",
         "description" : "This is product 1"
     },
     {
-        "id": 5,
+        "id": "p5",
         "prod_name": "Product 5",
         "description" : "This is product 1"
     },
     {
-        "id":6,
+        "id":"p6",
         "prod_name":"Product 6",
         "description" : "This is product 1"
     }
