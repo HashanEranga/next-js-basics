@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 
-export default function SalesProductsPage() {
+export default function SalesProductsPage(props) {
   //   const [isLoading, setIsLoading] = useState(false);
-  const [sales, setSale] = useState();
+  const [sales, setSale] = useState(props.sales);
   const { data, error } = useSWR(
     "https://sales-proj-default-rtdb.firebaseio.com/sales.json", Fetcher
   );
@@ -28,7 +28,7 @@ export default function SalesProductsPage() {
     return <h1>Error Occured</h1>;
   }
 
-  if (!data || !sales) {
+  if (!data && !sales) {
     return <h1>Loading ... </h1>;
   }
 
@@ -83,3 +83,21 @@ function Fetcher(url) {
     }).then(response => response.json());
    }
    
+export async function getStaticProps(){
+    return fetch("https://sales-proj-default-rtdb.firebaseio.com/sales.json")
+          .then((responce) => responce.json())
+          .then((data) => {
+            const salesList = [];
+            for (const key in data) {
+              console.log(key);
+              salesList.push({
+                id: key,
+                username: data[key].username,
+                volume: data[key].volume,
+              });
+            }
+            return {props : {sales : salesList}, revalidate: 10}
+            // console.log(salesList);
+          });
+        
+}
