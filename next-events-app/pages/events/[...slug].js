@@ -21,7 +21,7 @@ function FilteredEventsPage() {
     filteredMonth > 12 ||
     filteredMonth < 1
   ) {
-    return;
+    return(
     <>
       <ErrorAlert>
         <p>Invalid Filter!</p>;
@@ -29,7 +29,9 @@ function FilteredEventsPage() {
       <div className="center">
         <Button link="/events">Show All Events</Button>
       </div>
-    </>;
+    </>
+        )
+
   }
 
   if (!filterData) return <p className="center">Loading ...</p>;
